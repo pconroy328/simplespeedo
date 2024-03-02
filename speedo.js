@@ -593,7 +593,8 @@ function draw2() {
 
     var client = null;
     function connect() {
-      var broker = "ws://192.168.161.215:9001/mqtt";
+      //var broker = "ws://192.168.161.215:9001/mqtt";
+      var broker = "ws://10.42.0.1:9001/mqtt";
       var clientId = "clientId-" + Math.random().toString(16).substr(2, 8);
       client = new Paho.MQTT.Client(broker, clientId);
       client.onConnectionLost = onConnectionLost;
@@ -604,7 +605,7 @@ function draw2() {
     function onConnect() {
       console.log("Connected!");
       //var topic = document.getElementById("topic").value;
-      client.subscribe("GPS2/#");
+      client.subscribe("GPS/#");
     }
 
     function onConnectionLost(responseObject) {
