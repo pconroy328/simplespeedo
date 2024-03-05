@@ -495,21 +495,31 @@ function draw2() {
     ctx1.closePath();
     
     // compass ring
-    compassAngle = (gpsTrack*(Math.PI/180));
+    //compassAngle = (gpsTrack*(Math.PI/180));
     // marker arc
-      ctx1.strokeStyle = config_colorScheme[3];
-      ctx1.lineWidth = config_hudCompass.arcThickness;
-      ctx1.beginPath();
-      ctx1.arc( scx, scy, scr*config_hudCompass.radius, -compassAngle-(Math.PI/2)-(Math.PI*2*config_hudCompass.arcSize), -compassAngle-(Math.PI/2)+(Math.PI*2*config_hudCompass.arcSize) );
-      ctx1.stroke();
-      ctx1.closePath();
+    //  ctx1.strokeStyle = config_colorScheme[3];
+    //  ctx1.lineWidth = config_hudCompass.arcThickness;
+    //  ctx1.beginPath();
+    //  aa = -compassAngle-(Math.PI/2)-(Math.PI*2*config_hudCompass.arcSize);
+    //  bb = -compassAngle-(Math.PI/2)+(Math.PI*2*config_hudCompass.arcSize);
+
+     // ctx1.arc( scx, scy, scr*config_hudCompass.radius, -compassAngle-(Math.PI/2)-(Math.PI*2*config_hudCompass.arcSize), -compassAngle-(Math.PI/2)+(Math.PI*2*config_hudCompass.arcSize) );
+
+//	console.log( "----------------------------------------------------------" );
+//	console.log( "TRACK: " + gpsTrack );
+//	console.log( "ANGLE: " + compassAngle );
+//	console.log( "AA: " + aa );
+//	console.log( "BB: " + bb );
+//
+ //     ctx1.stroke();
+  //    ctx1.closePath();
     // marker center
-      ctx1.strokeStyle = config_colorScheme[1];
-      ctx1.lineWidth = config_hudCompass.centerThickness;
-      ctx1.beginPath();
-      ctx1.arc( scx, scy, scr*config_hudCompass.radius, -compassAngle-(Math.PI/2)-(Math.PI*2*config_hudCompass.centerSize), -compassAngle-(Math.PI/2)+(Math.PI*2*config_hudCompass.centerSize) );
-      ctx1.stroke();
-      ctx1.closePath();
+   //   ctx1.strokeStyle = config_colorScheme[1];
+    //  ctx1.lineWidth = config_hudCompass.centerThickness;
+     // ctx1.beginPath();
+   //   ctx1.arc( scx, scy, scr*config_hudCompass.radius, -compassAngle-(Math.PI/2)-(Math.PI*2*config_hudCompass.centerSize), -compassAngle-(Math.PI/2)+(Math.PI*2*config_hudCompass.centerSize) );
+   //   ctx1.stroke();
+   //   ctx1.closePath();
     
     // Top Info - digital speed
     ctx1.fillStyle = config_colorScheme[1];
@@ -603,7 +613,7 @@ function draw2() {
     }
 
     function onConnect() {
-      console.log("Connected!");
+      console.log("***Connected!");
       //var topic = document.getElementById("topic").value;
       client.subscribe("GPS/#");
     }
@@ -613,7 +623,7 @@ function draw2() {
     }
 
     function onMessage(message) {
-      console.log("Received MQTT message: " + message.payloadString);
+      //console.log("Received MQTT message: " + message.payloadString);
       var gpsData = JSON.parse( message.payloadString );
 
       var topic = gpsData.topic;
